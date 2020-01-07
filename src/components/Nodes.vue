@@ -94,12 +94,13 @@ export default {
 
       let array = [];
       data.forEach(item => {
-        if (item.latency == -1) {
-          item.height = "-";
-          item.version = "-";
-          item.latency = "-";
-          item.peers = "-";
-          item.memPool = "-";
+        let newItem = { ...item };
+        if (item.latency === -1) {
+          newItem.height = "-";
+          newItem.version = "-";
+          newItem.latency = "-";
+          newItem.peers = "-";
+          newItem.memPool = "-";
         }
         array.push(item);
       });
@@ -109,9 +110,7 @@ export default {
       this.$store.dispatch("setNodeIDAction", param);
     },
     filterTable(row, filter) {
-      return row.url.toLowerCase().includes(filter.toLowerCase())
-        ? true
-        : false;
+      return row.url.toLowerCase().includes(filter.toLowerCase());
     }
   },
   computed: {

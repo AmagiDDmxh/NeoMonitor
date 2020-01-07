@@ -93,13 +93,9 @@ export default {
       this.$store.dispatch("setStatisticsY", yAxis);
     },
     filterTable(row, filter) {
-      // return true;
+      // filtered by node name and exception height
       return row.NodeName.toLowerCase().includes(filter.toLowerCase()) ||
-        row.exceptionHeight.toString()
-          .toLowerCase()
-          .includes(filter.toLowerCase())
-        ? true
-        : false;
+             row.exceptionHeight.toString().toLowerCase().includes(filter.toLowerCase());
     }
   },
   computed: {

@@ -64,5 +64,7 @@ export const store = new Vuex.Store({
     getNeoSelectedNetNodes(state) {
       return state.neoSelectedNetNodes;
     }
-  }
+  },
+
+  strict: process.env.NODE_ENV !== 'production'
 });
